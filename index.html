@@ -3,124 +3,1029 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>シンプルなWebサイト</title>
+
+  <title>TRAVEL NOTE｜おすすめ旅行先</title>
 
   <style>
+
+    /* =========================
+       基本設定
+    ========================= */
+
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      padding-bottom: 120px;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background-color: #f5f5f5;
+      font-family:
+        "Helvetica Neue",
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        sans-serif;
+
+      color: #34424f;
+      background-color: #f4f1eb;
+      line-height: 1.8;
     }
 
-    /* ヘッダー */
+
+    /* =========================
+       ヘッダー
+    ========================= */
+
     header {
-      background-color: #440000;
-      color: white;
+      height: 76px;
+      padding: 0 6%;
+      background-color: #253746;
+      color: #ffffff;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .logo {
+      font-size: 22px;
+      letter-spacing: 3px;
+      font-weight: 600;
+    }
+
+    .logo span {
+      color: #c6a15b;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 1px;
+
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #c6a15b;
+    }
+
+
+    /* =========================
+       メインビジュアル
+    ========================= */
+
+    .hero {
+      min-height: 390px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       text-align: center;
-      padding: 30px 20px;
+
+      padding: 70px 20px;
+
+      background:
+        linear-gradient(
+          rgba(37, 55, 70, 0.82),
+          rgba(37, 55, 70, 0.82)
+        ),
+        linear-gradient(
+          135deg,
+          #6d8796,
+          #253746
+        );
+
+      color: white;
     }
 
-    header h1 {
-      margin: 0;
-    }
-
-    /* メイン */
-    main {
+    .hero-content {
       max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      color: #cc0000;
     }
 
-    section {
-      background-color: white;
-      margin-bottom: 30px;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    .hero small {
+      display: block;
+      margin-bottom: 15px;
+
+      color: #d6b66c;
+
+      font-size: 13px;
+      letter-spacing: 4px;
     }
 
-    section h2 {
-      margin-top: 0;
-      color: #cc0000;
+    .hero h1 {
+      margin: 0;
+
+      font-size: clamp(36px, 6vw, 62px);
+
+      font-weight: 500;
+      letter-spacing: 4px;
     }
 
-    /* フッター */
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      padding: 15px 20px;
-      background-color: #440000;
-      color: white;
+    .hero p {
+      margin-top: 20px;
+
+      font-size: 16px;
+      color: #e8e5df;
+    }
+
+
+    /* =========================
+       大きなスライダー
+    ========================= */
+
+    .slider-section {
+      padding: 60px 0;
+
+      background-color: #e9e4da;
+
+      overflow: hidden;
+    }
+
+    .slider-title {
       text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .slider-title span {
+      color: #a5874d;
+      font-size: 12px;
+      letter-spacing: 4px;
+    }
+
+    .slider-title h2 {
+      margin: 5px 0 0;
+
+      color: #253746;
+
+      font-size: 28px;
+      font-weight: 500;
+    }
+
+
+    .slider-window {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .slider {
+      display: flex;
+      width: max-content;
+
+      animation: slide 30s linear infinite;
+    }
+
+
+    .slide-card {
+      width: 520px;
+      height: 300px;
+
+      margin: 0 15px;
+
+      border-radius: 12px;
+
+      position: relative;
+      overflow: hidden;
+
+      display: flex;
+      align-items: flex-end;
+
+      flex-shrink: 0;
+
+      box-shadow:
+        0 12px 30px rgba(37, 55, 70, 0.2);
+    }
+
+
+    /* カードの背景 */
+
+    .slide-taiwan {
+      background:
+        linear-gradient(
+          to top,
+          rgba(20, 30, 40, 0.8),
+          rgba(20, 30, 40, 0.05)
+        ),
+        linear-gradient(135deg, #bd6b5f, #e2a08b);
+    }
+
+    .slide-hokkaido {
+      background:
+        linear-gradient(
+          to top,
+          rgba(20, 30, 40, 0.8),
+          rgba(20, 30, 40, 0.05)
+        ),
+        linear-gradient(135deg, #577d8c, #b8d1d6);
+    }
+
+    .slide-france {
+      background:
+        linear-gradient(
+          to top,
+          rgba(20, 30, 40, 0.8),
+          rgba(20, 30, 40, 0.05)
+        ),
+        linear-gradient(135deg, #766d86, #c1b5c9);
+    }
+
+
+    .slide-content {
+      padding: 30px;
+
+      color: white;
+      position: relative;
+      z-index: 2;
+    }
+
+    .slide-content small {
+      color: #e0c57e;
+
+      letter-spacing: 2px;
+    }
+
+    .slide-content h3 {
+      margin: 5px 0;
+
+      font-size: 32px;
+      font-weight: 500;
+    }
+
+    .slide-content p {
+      margin: 0;
+
+      color: #eee;
+      font-size: 14px;
+    }
+
+
+    /* スライドアニメーション */
+
+    @keyframes slide {
+
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+
+    }
+
+
+    /* =========================
+       メインコンテンツ
+    ========================= */
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+
+      padding: 90px 25px;
+    }
+
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-heading small {
+      color: #a5874d;
+
+      letter-spacing: 3px;
+      font-size: 12px;
+    }
+
+    .section-heading h2 {
+      margin: 8px 0;
+
+      font-size: 32px;
+      font-weight: 500;
+
+      color: #253746;
+    }
+
+    .section-heading p {
+      color: #69747b;
+    }
+
+
+    /* =========================
+       おすすめ旅行先
+    ========================= */
+
+    .destination-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 25px;
+    }
+
+
+    .destination {
+      background: #ffffff;
+
+      border-radius: 10px;
+
+      overflow: hidden;
+
+      box-shadow:
+        0 5px 20px rgba(37, 55, 70, 0.08);
+
+      transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+    }
+
+    .destination:hover {
+      transform: translateY(-7px);
+
+      box-shadow:
+        0 15px 30px rgba(37, 55, 70, 0.15);
+    }
+
+
+    .destination-top {
+      height: 160px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 65px;
+    }
+
+
+    .taiwan {
+      background-color: #e8c1b7;
+    }
+
+    .thailand {
+      background-color: #d8c59c;
+    }
+
+    .hokkaido {
+      background-color: #b9ced3;
+    }
+
+
+    .destination-content {
+      padding: 25px;
+    }
+
+    .destination-content small {
+      color: #a5874d;
+
+      letter-spacing: 2px;
+    }
+
+    .destination-content h3 {
+      margin: 5px 0 10px;
+
+      font-size: 23px;
+      color: #253746;
+    }
+
+    .destination-content p {
+      margin: 0;
+
+      font-size: 14px;
+      color: #68747b;
+    }
+
+
+    /* =========================
+       旅のスタイル
+    ========================= */
+
+    .style-section {
+      margin-top: 100px;
+
+      background-color: #253746;
+
+      border-radius: 12px;
+
+      padding: 60px 40px;
+
+      color: white;
+    }
+
+    .style-section .section-heading h2 {
+      color: white;
+    }
+
+    .style-section .section-heading p {
+      color: #cbd2d5;
+    }
+
+
+    .style-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 20px;
+    }
+
+
+    .style-card {
+      padding: 30px;
+
+      text-align: center;
+
+      border: 1px solid rgba(255, 255, 255, 0.15);
+
+      border-radius: 8px;
+
+      background-color:
+        rgba(255, 255, 255, 0.04);
+    }
+
+    .style-card .icon {
+      font-size: 35px;
+    }
+
+    .style-card h3 {
+      color: #d8bb76;
+
+      font-size: 19px;
+      font-weight: 500;
+    }
+
+    .style-card p {
+      color: #d4d9dc;
+
+      font-size: 13px;
+    }
+
+
+    /* =========================
+       フッター
+    ========================= */
+
+    footer {
+      background-color: #1c2b36;
+
+      color: white;
+
+      text-align: center;
+
+      padding: 50px 20px;
+    }
+
+    footer .footer-logo {
+      font-size: 22px;
+
+      letter-spacing: 3px;
+    }
+
+    footer .footer-logo span {
+      color: #c6a15b;
     }
 
     footer p {
-      margin: 0 0 8px;
+      color: #bfc8cc;
+
+      font-size: 13px;
     }
 
-    /* ソーシャルメディアリンク */
-    .social-links a {
+
+    .sns {
+      margin: 25px 0;
+    }
+
+    .sns a {
+      display: inline-block;
+
+      margin: 0 7px;
+
+      padding: 8px 18px;
+
+      border:
+        1px solid #78858b;
+
+      border-radius: 20px;
+
       color: white;
-      margin: 0 10px;
+
       text-decoration: none;
+
+      font-size: 12px;
+
+      transition: 0.3s;
     }
 
-    .social-links a:hover {
-      text-decoration: underline;
+    .sns a:hover {
+      background-color: #c6a15b;
+
+      border-color: #c6a15b;
     }
+
+
+    .copyright {
+      margin-top: 30px;
+
+      font-size: 11px;
+
+      color: #7d898f;
+    }
+
+
+    /* =========================
+       スマートフォン対応
+    ========================= */
+
+    @media (max-width: 768px) {
+
+      header {
+        height: auto;
+
+        padding: 18px 20px;
+
+        flex-direction: column;
+
+        gap: 12px;
+      }
+
+      nav {
+        gap: 15px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+
+      .hero {
+        min-height: 320px;
+      }
+
+
+      .slide-card {
+        width: 350px;
+        height: 240px;
+      }
+
+
+      .destination-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .style-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .style-section {
+        padding: 45px 20px;
+      }
+
+    }
+
   </style>
+
 </head>
+
 
 <body>
 
-  <!-- ヘッダー -->
+
+  <!-- =========================
+       ヘッダー
+  ========================= -->
+
   <header>
-    <h1>私のおすすめ旅行先WEBサイト</h1>
+
+    <div class="logo">
+      TRAVEL <span>NOTE</span>
+    </div>
+
+    <nav>
+      <a href="#recommend">DESTINATIONS</a>
+      <a href="#style">TRAVEL STYLE</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+
   </header>
 
-  <!-- メインコンテンツ -->
+
+
+  <!-- =========================
+       メインビジュアル
+  ========================= -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <small>DISCOVER YOUR NEXT JOURNEY</small>
+
+      <h1>次の旅を、もっと特別に。</h1>
+
+      <p>
+        世界の魅力的な街や自然を、
+        私たちの視点でご紹介します。
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       スライダー
+  ========================= -->
+
+  <section class="slider-section">
+
+    <div class="slider-title">
+
+      <span>FEATURED DESTINATIONS</span>
+
+      <h2>今、訪れたい場所</h2>
+
+    </div>
+
+
+    <div class="slider-window">
+
+      <div class="slider">
+
+
+        <!-- 1周目 -->
+
+        <div class="slide-card slide-taiwan">
+
+          <div class="slide-content">
+
+            <small>ASIA</small>
+
+            <h3>台湾</h3>
+
+            <p>
+              食・街・文化を楽しむ、
+              心地よいアジアの旅。
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="slide-card slide-hokkaido">
+
+          <div class="slide-content">
+
+            <small>JAPAN</small>
+
+            <h3>北海道</h3>
+
+            <p>
+              美しい自然と、
+              心を満たすご当地グルメ。
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="slide-card slide-france">
+
+          <div class="slide-content">
+
+            <small>EUROPE</small>
+
+            <h3>フランス</h3>
+
+            <p>
+              芸術と美食に出会う、
+              大人のヨーロッパ旅行。
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- 2周目 -->
+
+        <div class="slide-card slide-taiwan">
+
+          <div class="slide-content">
+
+            <small>ASIA</small>
+
+            <h3>台湾</h3>
+
+            <p>
+              食・街・文化を楽しむ、
+              心地よいアジアの旅。
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="slide-card slide-hokkaido">
+
+          <div class="slide-content">
+
+            <small>JAPAN</small>
+
+            <h3>北海道</h3>
+
+            <p>
+              美しい自然と、
+              心を満たすご当地グルメ。
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="slide-card slide-france">
+
+          <div class="slide-content">
+
+            <small>EUROPE</small>
+
+            <h3>フランス</h3>
+
+            <p>
+              芸術と美食に出会う、
+              大人のヨーロッパ旅行。
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       メイン
+  ========================= -->
+
   <main>
 
-    <section>
-      <h2>私がおすすめする旅行先</h2>
-      <p>
-        １．台湾：本当にご飯がおいしい。ジブリを感じることが出来る<br>
-        ２．タイ：象に乗って観光するのが楽しい。<br>
-        ３．北海道：どこのお店に行ってもご飯がおいしい。居酒屋のご飯が特においしい
-      </p>
-      <img src="https://github.com/ushimarusawa/osusumemypege/blob/main/cupcake.jpg?raw=true" alt="サンプル">
+
+    <!-- おすすめ -->
+
+    <section id="recommend">
+
+      <div class="section-heading">
+
+        <small>OUR RECOMMEND</small>
+
+        <h2>おすすめの旅行先</h2>
+
+        <p>
+          初めての方にもおすすめしたい、
+          魅力あふれる3つの場所。
+        </p>
+
+      </div>
+
+
+      <div class="destination-grid">
+
+
+        <!-- 台湾 -->
+
+        <article class="destination">
+
+          <div class="destination-top taiwan">
+            🇹🇼
+          </div>
+
+          <div class="destination-content">
+
+            <small>TAIWAN</small>
+
+            <h3>台湾</h3>
+
+            <p>
+              夜市の活気、ローカルグルメ、
+              ノスタルジックな街並み。
+              気軽に楽しめるアジア旅行です。
+            </p>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- 北海道 -->
+
+        <article class="destination">
+
+          <div class="destination-top hokkaido">
+            ❄️
+          </div>
+
+          <div class="destination-content">
+
+            <small>HOKKAIDO</small>
+
+            <h3>北海道</h3>
+
+            <p>
+              広大な自然と新鮮な海の幸。
+              季節によって異なる魅力を
+              楽しめる国内旅行の定番です。
+            </p>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- タイ -->
+
+        <article class="destination">
+
+          <div class="destination-top thailand">
+            🇹🇭
+          </div>
+
+          <div class="destination-content">
+
+            <small>THAILAND</small>
+
+            <h3>タイ</h3>
+
+            <p>
+              美しい寺院、南国のリゾート、
+              本格的なタイ料理。
+              非日常を味わいたい方におすすめです。
+            </p>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
     </section>
 
-    <section>
-      <h2>これから行ってみたい旅行先</h2>
-      <p>
-        アメリカディズニーに行きたい<br>
-        フランスに行きたい
-      </p>
+
+
+    <!-- =========================
+         旅のスタイル
+    ========================= -->
+
+    <section id="style" class="style-section">
+
+      <div class="section-heading">
+
+        <small>TRAVEL STYLE</small>
+
+        <h2>あなたはどんな旅が好き？</h2>
+
+        <p>
+          目的に合わせて、
+          次の旅行先を探してみませんか？
+        </p>
+
+      </div>
+
+
+      <div class="style-grid">
+
+
+        <div class="style-card">
+
+          <div class="icon">
+            🍽️
+          </div>
+
+          <h3>食を楽しむ旅</h3>
+
+          <p>
+            現地ならではの料理や
+            カフェを巡る旅。
+          </p>
+
+        </div>
+
+
+        <div class="style-card">
+
+          <div class="icon">
+            🌿
+          </div>
+
+          <h3>自然を楽しむ旅</h3>
+
+          <p>
+            美しい景色や大自然の中で
+            ゆっくり過ごす旅。
+          </p>
+
+        </div>
+
+
+        <div class="style-card">
+
+          <div class="icon">
+            🎨
+          </div>
+
+          <h3>文化を楽しむ旅</h3>
+
+          <p>
+            歴史や建築、アートなど
+            新しい文化に触れる旅。
+          </p>
+
+        </div>
+
+
+      </div>
+
     </section>
+
 
   </main>
 
-  <!-- フッター -->
-  <footer>
-    <p>お問い合わせ：info@example.com</p>
 
-    <div class="social-links">
-      <a href="#">X</a>
-      <a href="#">Instagram</a>
-      <a href="#">Facebook</a>
+
+  <!-- =========================
+       フッター
+  ========================= -->
+
+  <footer id="contact">
+
+    <div class="footer-logo">
+      TRAVEL <span>NOTE</span>
     </div>
+
+    <p>
+      あなたの「行ってみたい」を見つける旅行情報サイト
+    </p>
+
+    <p>
+      お問い合わせ：info@travel-note.example
+    </p>
+
+
+    <div class="sns">
+
+      <a href="#">
+        Instagram
+      </a>
+
+      <a href="#">
+        X
+      </a>
+
+      <a href="#">
+        Facebook
+      </a>
+
+    </div>
+
+
+    <div class="copyright">
+      © 2026 TRAVEL NOTE
+    </div>
+
   </footer>
+
 
 </body>
 </html>
