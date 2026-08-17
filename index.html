@@ -41,6 +41,7 @@
     header {
       height: 76px;
       padding: 0 6%;
+
       background-color: #253746;
       color: #ffffff;
 
@@ -75,7 +76,6 @@
       text-decoration: none;
       font-size: 14px;
       letter-spacing: 1px;
-
       transition: 0.3s;
     }
 
@@ -145,7 +145,7 @@
 
 
     /* =========================
-       大きなスライダー
+       スライダー
     ========================= */
 
     .slider-section {
@@ -158,11 +158,12 @@
 
     .slider-title {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 35px;
     }
 
     .slider-title span {
       color: #a5874d;
+
       font-size: 12px;
       letter-spacing: 4px;
     }
@@ -172,7 +173,7 @@
 
       color: #253746;
 
-      font-size: 28px;
+      font-size: 30px;
       font-weight: 500;
     }
 
@@ -182,21 +183,26 @@
       overflow: hidden;
     }
 
+
     .slider {
       display: flex;
       width: max-content;
 
-      animation: slide 30s linear infinite;
+      animation: slide 35s linear infinite;
     }
 
 
+    /* =========================
+       スライドカード
+    ========================= */
+
     .slide-card {
-      width: 520px;
-      height: 300px;
+      width: 560px;
+      height: 330px;
 
       margin: 0 15px;
 
-      border-radius: 12px;
+      border-radius: 14px;
 
       position: relative;
       overflow: hidden;
@@ -206,74 +212,103 @@
 
       flex-shrink: 0;
 
+      background-size: cover;
+      background-position: center;
+
       box-shadow:
-        0 12px 30px rgba(37, 55, 70, 0.2);
+        0 15px 35px rgba(37, 55, 70, 0.25);
     }
 
 
-    /* カードの背景 */
+    /* =========================
+       台湾
+    ========================= */
 
     .slide-taiwan {
-      background:
+      background-image:
         linear-gradient(
           to top,
-          rgba(20, 30, 40, 0.8),
-          rgba(20, 30, 40, 0.05)
+          rgba(20, 30, 40, 0.88),
+          rgba(20, 30, 40, 0.08)
         ),
-        linear-gradient(135deg, #bd6b5f, #e2a08b);
+        url("https://raw.githubusercontent.com/ushimarusawa/osusumemypege/main/%E5%8F%B0%E6%B9%BE.jpg");
     }
+
+
+    /* =========================
+       北海道
+    ========================= */
 
     .slide-hokkaido {
-      background:
+      background-image:
         linear-gradient(
           to top,
-          rgba(20, 30, 40, 0.8),
-          rgba(20, 30, 40, 0.05)
+          rgba(20, 30, 40, 0.88),
+          rgba(20, 30, 40, 0.08)
         ),
-        linear-gradient(135deg, #577d8c, #b8d1d6);
+        url("https://raw.githubusercontent.com/ushimarusawa/osusumemypege/main/%E5%8C%97%E6%B5%B7%E9%81%93.jpg");
     }
+
+
+    /* =========================
+       フランス
+    ========================= */
 
     .slide-france {
-      background:
+      background-image:
         linear-gradient(
           to top,
-          rgba(20, 30, 40, 0.8),
-          rgba(20, 30, 40, 0.05)
+          rgba(20, 30, 40, 0.88),
+          rgba(20, 30, 40, 0.08)
         ),
-        linear-gradient(135deg, #766d86, #c1b5c9);
+        url("https://raw.githubusercontent.com/ushimarusawa/osusumemypege/main/%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B9.jpg");
     }
 
 
+    /* =========================
+       スライド内テキスト
+    ========================= */
+
     .slide-content {
-      padding: 30px;
+      padding: 32px;
 
       color: white;
+
       position: relative;
       z-index: 2;
+
+      text-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.4);
     }
 
     .slide-content small {
       color: #e0c57e;
 
       letter-spacing: 2px;
+
+      font-size: 12px;
     }
 
     .slide-content h3 {
       margin: 5px 0;
 
-      font-size: 32px;
+      font-size: 36px;
+
       font-weight: 500;
     }
 
     .slide-content p {
       margin: 0;
 
-      color: #eee;
+      color: #eeeeee;
+
       font-size: 14px;
     }
 
 
-    /* スライドアニメーション */
+    /* =========================
+       スライドアニメーション
+    ========================= */
 
     @keyframes slide {
 
@@ -294,6 +329,7 @@
 
     main {
       max-width: 1100px;
+
       margin: auto;
 
       padding: 90px 25px;
@@ -302,6 +338,7 @@
 
     .section-heading {
       text-align: center;
+
       margin-bottom: 50px;
     }
 
@@ -309,6 +346,7 @@
       color: #a5874d;
 
       letter-spacing: 3px;
+
       font-size: 12px;
     }
 
@@ -316,6 +354,7 @@
       margin: 8px 0;
 
       font-size: 32px;
+
       font-weight: 500;
 
       color: #253746;
@@ -363,29 +402,80 @@
     }
 
 
+    /* =========================
+       おすすめ旅行先の写真
+    ========================= */
+
     .destination-top {
-      height: 160px;
+      height: 210px;
+
+      position: relative;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      font-size: 65px;
+      background-size: cover;
+      background-position: center;
+
+      color: white;
+
+      font-size: 0;
+
+      overflow: hidden;
     }
 
+
+    .destination-top::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          rgba(20, 30, 40, 0.15),
+          rgba(20, 30, 40, 0.4)
+        );
+    }
+
+
+    /* 台湾 */
 
     .taiwan {
-      background-color: #e8c1b7;
+      background-image:
+        url("https://raw.githubusercontent.com/ushimarusawa/osusumemypege/main/%E5%8F%B0%E6%B9%BE.jpg");
     }
 
-    .thailand {
-      background-color: #d8c59c;
-    }
+
+    /* 北海道 */
 
     .hokkaido {
-      background-color: #b9ced3;
+      background-image:
+        url("https://raw.githubusercontent.com/ushimarusawa/osusumemypege/main/%E5%8C%97%E6%B5%B7%E9%81%93.jpg");
     }
 
+
+    /* タイ */
+
+    .thailand {
+      background:
+        linear-gradient(
+          rgba(20, 30, 40, 0.25),
+          rgba(20, 30, 40, 0.45)
+        ),
+        linear-gradient(
+          135deg,
+          #d7bd88,
+          #967d55
+        );
+    }
+
+
+    /* =========================
+       おすすめ旅行先の文章
+    ========================= */
 
     .destination-content {
       padding: 25px;
@@ -401,6 +491,7 @@
       margin: 5px 0 10px;
 
       font-size: 23px;
+
       color: #253746;
     }
 
@@ -408,6 +499,7 @@
       margin: 0;
 
       font-size: 14px;
+
       color: #68747b;
     }
 
@@ -452,13 +544,25 @@
 
       text-align: center;
 
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border:
+        1px solid rgba(255, 255, 255, 0.15);
 
       border-radius: 8px;
 
       background-color:
         rgba(255, 255, 255, 0.04);
+
+      transition: 0.3s;
     }
+
+
+    .style-card:hover {
+      transform: translateY(-5px);
+
+      background-color:
+        rgba(255, 255, 255, 0.08);
+    }
+
 
     .style-card .icon {
       font-size: 35px;
@@ -468,6 +572,7 @@
       color: #d8bb76;
 
       font-size: 19px;
+
       font-weight: 500;
     }
 
@@ -566,9 +671,11 @@
         gap: 12px;
       }
 
+
       nav {
         gap: 15px;
       }
+
 
       nav a {
         font-size: 12px;
@@ -577,17 +684,45 @@
 
       .hero {
         min-height: 320px;
+
+        padding: 60px 20px;
+      }
+
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+
+      .slider-section {
+        padding: 45px 0;
       }
 
 
       .slide-card {
         width: 350px;
+
         height: 240px;
+      }
+
+
+      .slide-content {
+        padding: 24px;
+      }
+
+
+      .slide-content h3 {
+        font-size: 28px;
       }
 
 
       .destination-grid {
         grid-template-columns: 1fr;
+      }
+
+
+      .destination-top {
+        height: 220px;
       }
 
 
@@ -620,10 +755,21 @@
       TRAVEL <span>NOTE</span>
     </div>
 
+
     <nav>
-      <a href="#recommend">DESTINATIONS</a>
-      <a href="#style">TRAVEL STYLE</a>
-      <a href="#contact">CONTACT</a>
+
+      <a href="#recommend">
+        DESTINATIONS
+      </a>
+
+      <a href="#style">
+        TRAVEL STYLE
+      </a>
+
+      <a href="#contact">
+        CONTACT
+      </a>
+
     </nav>
 
   </header>
@@ -638,9 +784,15 @@
 
     <div class="hero-content">
 
-      <small>DISCOVER YOUR NEXT JOURNEY</small>
+      <small>
+        DISCOVER YOUR NEXT JOURNEY
+      </small>
 
-      <h1>次の旅を、もっと特別に。</h1>
+
+      <h1>
+        次の旅を、もっと特別に。
+      </h1>
+
 
       <p>
         世界の魅力的な街や自然を、
@@ -661,9 +813,14 @@
 
     <div class="slider-title">
 
-      <span>FEATURED DESTINATIONS</span>
+      <span>
+        FEATURED DESTINATIONS
+      </span>
 
-      <h2>今、訪れたい場所</h2>
+
+      <h2>
+        今、訪れたい場所
+      </h2>
 
     </div>
 
@@ -673,117 +830,164 @@
       <div class="slider">
 
 
-        <!-- 1周目 -->
+        <!-- =====================
+             1周目
+        ===================== -->
+
 
         <div class="slide-card slide-taiwan">
 
           <div class="slide-content">
 
-            <small>ASIA</small>
+            <small>
+              ASIA
+            </small>
 
-            <h3>台湾</h3>
+
+            <h3>
+              台湾
+            </h3>
+
 
             <p>
               食・街・文化を楽しむ、
               心地よいアジアの旅。
             </p>
-          　<img src="https://github.com/ushimarusawa/osusumemypege/blob/main/%E5%8F%B0%E6%B9%BE.jpg?raw=true" alt="サンプル">
+
           </div>
 
         </div>
+
 
 
         <div class="slide-card slide-hokkaido">
 
           <div class="slide-content">
 
-            <small>JAPAN</small>
+            <small>
+              JAPAN
+            </small>
 
-            <h3>北海道</h3>
+
+            <h3>
+              北海道
+            </h3>
+
 
             <p>
               美しい自然と、
               心を満たすご当地グルメ。
             </p>
-          　<img src="https://github.com/ushimarusawa/osusumemypege/blob/main/%E5%8F%B0%E6%B9%BE.jpg?raw=true" alt="サンプル">
+
           </div>
 
         </div>
+
 
 
         <div class="slide-card slide-france">
 
           <div class="slide-content">
 
-            <small>EUROPE</small>
+            <small>
+              EUROPE
+            </small>
 
-            <h3>フランス</h3>
+
+            <h3>
+              フランス
+            </h3>
+
 
             <p>
               芸術と美食に出会う、
               大人のヨーロッパ旅行。
             </p>
-          　<img src="https://github.com/ushimarusawa/osusumemypege/blob/main/%E5%8F%B0%E6%B9%BE.jpg?raw=true" alt="サンプル">
+
           </div>
 
         </div>
 
 
 
-        <!-- 2周目 -->
+        <!-- =====================
+             2周目
+        ===================== -->
+
 
         <div class="slide-card slide-taiwan">
 
           <div class="slide-content">
 
-            <small>ASIA</small>
+            <small>
+              ASIA
+            </small>
 
-            <h3>台湾</h3>
+
+            <h3>
+              台湾
+            </h3>
+
 
             <p>
               食・街・文化を楽しむ、
               心地よいアジアの旅。
             </p>
-           <img src="https://github.com/ushimarusawa/osusumemypege/blob/main/%E5%8F%B0%E6%B9%BE.jpg?raw=true" alt="サンプル">
+
           </div>
 
         </div>
+
 
 
         <div class="slide-card slide-hokkaido">
 
           <div class="slide-content">
 
-            <small>JAPAN</small>
+            <small>
+              JAPAN
+            </small>
 
-            <h3>北海道</h3>
+
+            <h3>
+              北海道
+            </h3>
+
 
             <p>
               美しい自然と、
               心を満たすご当地グルメ。
             </p>
-        　　<img src="https://github.com/ushimarusawa/osusumemypege/blob/main/%E5%8F%B0%E6%B9%BE.jpg?raw=true" alt="サンプル">
+
           </div>
 
         </div>
+
 
 
         <div class="slide-card slide-france">
 
           <div class="slide-content">
 
-            <small>EUROPE</small>
+            <small>
+              EUROPE
+            </small>
 
-            <h3>フランス</h3>
+
+            <h3>
+              フランス
+            </h3>
+
 
             <p>
               芸術と美食に出会う、
               大人のヨーロッパ旅行。
             </p>
-            <img src="https://github.com/ushimarusawa/osusumemypege/blob/main/%E5%8F%B0%E6%B9%BE.jpg?raw=true" alt="サンプル">
+
           </div>
 
         </div>
+
 
       </div>
 
@@ -800,15 +1004,23 @@
   <main>
 
 
-    <!-- おすすめ -->
+    <!-- =====================
+         おすすめ旅行先
+    ===================== -->
 
     <section id="recommend">
 
       <div class="section-heading">
 
-        <small>OUR RECOMMEND</small>
+        <small>
+          OUR RECOMMEND
+        </small>
 
-        <h2>おすすめの旅行先</h2>
+
+        <h2>
+          おすすめの旅行先
+        </h2>
+
 
         <p>
           初めての方にもおすすめしたい、
@@ -826,21 +1038,27 @@
         <article class="destination">
 
           <div class="destination-top taiwan">
-            🇹🇼
           </div>
+
 
           <div class="destination-content">
 
-            <small>TAIWAN</small>
+            <small>
+              TAIWAN
+            </small>
 
-            <h3>台湾</h3>
+
+            <h3>
+              台湾
+            </h3>
+
 
             <p>
               夜市の活気、ローカルグルメ、
               ノスタルジックな街並み。
               気軽に楽しめるアジア旅行です。
             </p>
-            <img src="https://github.com/ushimarusawa/osusumemypege/blob/main/%E5%8F%B0%E6%B9%BE.jpg?raw=true" alt="サンプル">
+
           </div>
 
         </article>
@@ -852,14 +1070,20 @@
         <article class="destination">
 
           <div class="destination-top hokkaido">
-            ❄️
           </div>
+
 
           <div class="destination-content">
 
-            <small>HOKKAIDO</small>
+            <small>
+              HOKKAIDO
+            </small>
 
-            <h3>北海道</h3>
+
+            <h3>
+              北海道
+            </h3>
+
 
             <p>
               広大な自然と新鮮な海の幸。
@@ -878,14 +1102,20 @@
         <article class="destination">
 
           <div class="destination-top thailand">
-            🇹🇭
           </div>
+
 
           <div class="destination-content">
 
-            <small>THAILAND</small>
+            <small>
+              THAILAND
+            </small>
 
-            <h3>タイ</h3>
+
+            <h3>
+              タイ
+            </h3>
+
 
             <p>
               美しい寺院、南国のリゾート、
@@ -908,13 +1138,22 @@
          旅のスタイル
     ========================= -->
 
-    <section id="style" class="style-section">
+    <section
+      id="style"
+      class="style-section"
+    >
 
       <div class="section-heading">
 
-        <small>TRAVEL STYLE</small>
+        <small>
+          TRAVEL STYLE
+        </small>
 
-        <h2>あなたはどんな旅が好き？</h2>
+
+        <h2>
+          あなたはどんな旅が好き？
+        </h2>
+
 
         <p>
           目的に合わせて、
@@ -927,13 +1166,19 @@
       <div class="style-grid">
 
 
+        <!-- 食 -->
+
         <div class="style-card">
 
           <div class="icon">
             🍽️
           </div>
 
-          <h3>食を楽しむ旅</h3>
+
+          <h3>
+            食を楽しむ旅
+          </h3>
+
 
           <p>
             現地ならではの料理や
@@ -943,13 +1188,20 @@
         </div>
 
 
+
+        <!-- 自然 -->
+
         <div class="style-card">
 
           <div class="icon">
             🌿
           </div>
 
-          <h3>自然を楽しむ旅</h3>
+
+          <h3>
+            自然を楽しむ旅
+          </h3>
+
 
           <p>
             美しい景色や大自然の中で
@@ -959,13 +1211,20 @@
         </div>
 
 
+
+        <!-- 文化 -->
+
         <div class="style-card">
 
           <div class="icon">
             🎨
           </div>
 
-          <h3>文化を楽しむ旅</h3>
+
+          <h3>
+            文化を楽しむ旅
+          </h3>
+
 
           <p>
             歴史や建築、アートなど
@@ -991,15 +1250,22 @@
   <footer id="contact">
 
     <div class="footer-logo">
-      TRAVEL <span>NOTE</span>
+
+      TRAVEL
+      <span>NOTE</span>
+
     </div>
 
-    <p>
-      あなたの「行ってみたい」を見つける旅行情報サイト
-    </p>
 
     <p>
-      お問い合わせ：info@travel-note.example
+      あなたの「行ってみたい」を
+      見つける旅行情報サイト
+    </p>
+
+
+    <p>
+      お問い合わせ：
+      info@travel-note.example
     </p>
 
 
@@ -1009,9 +1275,11 @@
         Instagram
       </a>
 
+
       <a href="#">
         X
       </a>
+
 
       <a href="#">
         Facebook
